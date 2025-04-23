@@ -1,1 +1,1 @@
-# Our Cubstart Final Project
+# Cubstart Final Project
