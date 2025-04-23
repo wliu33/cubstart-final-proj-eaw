@@ -5,7 +5,7 @@ I)  Plan
 **Project name:** Leaf It to Me
 
 **Application description: Gamified productivity app**
-Our website is designed to encourage productivity through an interactive digital study board. At the center of the page is a Pomodoro timer that helps guide focused work and break intervals. There is a Pomodoro timer in the middle, a daily checklist box on one side, and a Positive Affirmations Board (that uses an API similar to the chat box we created in class) where users can leave a positive note for themselves that is saved upon reloads. The website will be primarily based on a reward system where for each task that is checked off on the checklist, the background will change with a different ‘support character’ displayed.
+Our website is designed to encourage productivity through an interactive digital study board. There is a Pomodoro timer in the middle, a daily checklist box on one side, and a Positive Affirmations Board (that uses an API similar to the chat box we created in class) where users can leave a positive note for themselves that is saved upon reloads. The website will be primarily based on a reward system where for each task that is checked off on the checklist, the background will change with a different ‘support character’ displayed.
 
 **Features + tools/technologies:**
 -  Timer: a customizable timer that alternates between focus and break intervals to promote structured productivity that allows users to: 
