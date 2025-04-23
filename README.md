@@ -1,5 +1,3 @@
-# Cubstart Final Project
-
 Project name: Leaf It to Me
 
 Application description: Gamified productivity app
