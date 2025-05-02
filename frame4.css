@@ -1,0 +1,49 @@
+body {
+    font-family: 'Irish Grover', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #FFFAE5;
+}
+
+.break-screen {
+    text-align: center;
+    width: 90%;
+    max-width: 800px;
+}
+
+.leaf-me-be {
+    font-size: 6vw;
+    color: #97B39B;
+    margin-bottom: 2rem;
+}
+
+.timer-short {
+    font-size: 10vw;
+    color: #000;
+    margin: 2rem 0;
+}
+
+.break-message {
+    font-size: 3vw;
+    color: #638E95;
+    margin: 2rem 0;
+}
+
+#resume-button {
+    font-size: 2vw;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 50px;
+    background-color: #97B39B;
+    color: white;
+    cursor: pointer;
+    margin-top: 2rem;
+}
+
+#resume-button:hover {
+    background-color: #6FA867;
+    transform: scale(1.05);
+}

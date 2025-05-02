@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Screen</title>
+    <link rel="stylesheet" href="frame1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap" rel="stylesheet">
+    <script defer src="main.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Leaf It to Me!!!</div>
+        
+        <div id="timer-display" class="timer">25:00</div>
+        
+        <div class="buttons">
+            <button id="start-button" class="start-button">Start</button>
+            <button id="clear-button" class="clear-button">Clear</button>
+        </div>
+        
+        <div class="affirmations-board">
+            <div class="affirmations-title">Affirmations</div>
+            <p id="affirmation-text">Click to generate a random affirmation!</p>
+            <button id="get-affirmation">Get Affirmation</button>
+        </div>
+        
+        <div class="tasks-container">
+            <div class="task-title">Daily's Tasks</div>
+            <div class="task-list" id="task-list">
+                <div class="task-input-container">
+                    <input type="text" id="new-task" placeholder="Add a new task">
+                    <button id="add-task">+</button>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

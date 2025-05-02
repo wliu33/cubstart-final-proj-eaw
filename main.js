@@ -1,15 +1,18 @@
+
+let currentFrame = 1;
 let timer;
-let timeLeft = 1500; //unit in seconds; 25 mins 
+let timeLeft = 1500; // 25 minutes in seconds
 let isBreakTime = false;
 
-//initialize when DOM is loaded
+// initialize when DOM is loaded
 document.addEventListener("DOMContentLoaded", function() {
     initializeTimer();
     initializeTasks();
+    initializeThemeToggle();
     initializeAffirmations();
 });
 
-//timer 
+// timer 
 function initializeTimer() {
     const timerDisplay = document.getElementById("timer-display");
     const startButton = document.getElementById("start-button");
@@ -36,14 +39,14 @@ function initializeTimer() {
                 timer = null;
                 
                 if (!isBreakTime) {
-                    //set to break screen
+                    // switch to break screen
                     isBreakTime = true;
-                    timeLeft = 300; //units in seconds; 5 mins
+                    timeLeft = 300; // 5 minutes for break
                     window.location.href = "frame4.html";
                 } else {
-                    //end break; set to frame1 and restart timer to 25 mins
+                    // break ended, return to work
                     isBreakTime = false;
-                    timeLeft = 1500; 
+                    timeLeft = 1500; // 25 minutes for work
                     window.location.href = "frame1.html";
                 }
             }
@@ -53,12 +56,7 @@ function initializeTimer() {
     function clearTimer() {
         clearInterval(timer);
         timer = null;
-        let timeLeft;
-        if (isBreakTime) {
-            timeLeft = 300; //5 mins
-        } else {
-            timeLeft = 1500; //25 mins
-        }
+        timeLeft = isBreakTime ? 300 : 1500;
         updateTimerDisplay();
     }
 
@@ -67,13 +65,13 @@ function initializeTimer() {
     if (resumeButton) resumeButton.addEventListener("click", () => {
         isBreakTime = false;
         timeLeft = 1500;
-        window.location.href = "frame1.html"; //set to frame1
+        window.location.href = "frame1.html";
     });
 
     updateTimerDisplay();
 }
 
-//task
+// task list
 function initializeTasks() {
     const taskList = document.getElementById("task-list");
     const newTaskInput = document.getElementById("new-task");
@@ -94,7 +92,7 @@ function initializeTasks() {
         taskList.appendChild(taskItem);
         newTaskInput.value = "";
         
-        // event listeners for new task
+        // event listeners for the new task
         const checkbox = taskItem.querySelector(".task-checkbox");
         const label = taskItem.querySelector("label");
         const deleteBtn = taskItem.querySelector(".delete-task");
@@ -122,7 +120,9 @@ function initializeTasks() {
     }
 }
 
-// affirmations functionality
+
+
+// affirmations
 function initializeAffirmations() {
     const affirmationButton = document.getElementById("get-affirmation");
     const affirmationDisplay = document.getElementById("affirmation-text");
@@ -143,7 +143,7 @@ function initializeAffirmations() {
                     affirmationDisplay.textContent = data.affirmation;
                 })
                 .catch((error) => {
-                    // us local affirmations if API fails
+                    // use local affirmations if API fails
                     const randomIndex = Math.floor(Math.random() * defaultAffirmations.length);
                     affirmationDisplay.textContent = defaultAffirmations[randomIndex];
                     console.error("Affirmation API error:", error);
