@@ -130,3 +130,31 @@ button:hover {
     font-size: 1.2rem;
     padding: 0.8rem 1.5rem;
 }
+
+/* image styles */
+.title-leaf {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.affirmation-leaf {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: -230px;
+    right: -55px;
+
+    z-index: 1;
+}
+
+/*  */
+.affirmations-board {
+    position: relative;
+    border: 2px solid #97B39B;
+    overflow: visible; /* allows to extend beyond border */
+}

@@ -1,16 +1,21 @@
-
 let timer;
-let isBreakTime = window.location.href.includes("frame4.html"); // Automatically detect break screen
-let timeLeft = isBreakTime ? 15 : 15; // 15 seconds for both work and break (demo purposes)
+let isBreakTime = window.location.href.includes("frame4.html"); //so the variable can automatically detect break screen to adjust timeLeft appropriately
+let timeLeft; 
+if (isBreakTime) {
+    timeLeft = 10;
+} else {
+    timeLeft = 15;
+}
+// 15 seconds for both work and break (demo purposes)
 
-// Initialize when DOM is loaded
+//initialize when DOM (document object model) is loaded
 document.addEventListener("DOMContentLoaded", function () {
     initializeTimer();
     initializeTasks();
     initializeAffirmations();
 });
 
-// Timer functionality
+//timer
 function initializeTimer() {
     const timerDisplay = document.getElementById("timer-display");
     const startButton = document.getElementById("start-button");
@@ -19,16 +24,19 @@ function initializeTimer() {
 
     function updateTimerDisplay() {
         if (timerDisplay) {
+            //used math.floor for the timer minutes
+            //and modulus for the timer seconds
             const minutes = Math.floor(timeLeft / 60);
             const seconds = timeLeft % 60;
+            //puts together timer and seconds as a string
             timerDisplay.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
         }
     }
 
     function startTimer() {
-        if (timer) return;
+        if (timer) return; //returns so there arent duplicate timers created if timer is already running
 
-        timer = setInterval(() => {
+        timer = setInterval(() => { //used setInterval- a built in java script func for time intervals
             timeLeft--;
             updateTimerDisplay();
 
@@ -37,12 +45,12 @@ function initializeTimer() {
                 timer = null;
 
                 if (!isBreakTime) {
-                    // Switch to break screen
+                    // switch to break screen
                     isBreakTime = true;
                     timeLeft = 15; // 15 seconds for break (demo)
                     window.location.href = "frame4.html";
                 } else {
-                    // Return to work
+                    // return to homepage/work page
                     isBreakTime = false;
                     timeLeft = 15; // 15 seconds for work (demo)
                     window.location.href = "index.html";
@@ -54,7 +62,7 @@ function initializeTimer() {
     function clearTimer() {
         clearInterval(timer);
         timer = null;
-        timeLeft = 15; // Always reset to 15 seconds (demo)
+        timeLeft = 15; // so we always reset to 15 seconds (demo)
         updateTimerDisplay();
     }
 
@@ -65,23 +73,24 @@ function initializeTimer() {
         timeLeft = 15; // 15 seconds when resuming (demo)
         window.location.href = "index.html";
     });
+    //
 
     updateTimerDisplay();
 
-    // Auto-start timer if on break screen
+    // auto-start timer if on break screen
     if (isBreakTime) {
         startTimer();
     }
 }
 
-// Task list functionality (unchanged)
+// task list
 function initializeTasks() {
     const taskList = document.getElementById("task-list");
     const newTaskInput = document.getElementById("new-task");
     const addTaskButton = document.getElementById("add-task");
 
     function createTaskElement(taskText) {
-        const taskId = 'task-' + Date.now();
+        const taskId = 'task-' + Date.now(); 
         const taskItem = document.createElement('div');
         taskItem.className = 'task-item';
         
@@ -132,7 +141,7 @@ function initializeTasks() {
     }
 }
 
-// Affirmations functionality (unchanged)
+// affirmations
 function initializeAffirmations() {
     const affirmationButton = document.getElementById("get-affirmation");
     const affirmationDisplay = document.getElementById("affirmation-text");
@@ -149,6 +158,7 @@ function initializeAffirmations() {
         affirmationButton.addEventListener('click', () => {
             fetch("https://www.affirmations.dev/")
                 .then(response => {
+                    //in case theres an error then throw an exception error
                     if (!response.ok) throw new Error('Network response was not ok');
                     return response.json();
                 })
