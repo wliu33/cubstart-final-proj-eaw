@@ -2,9 +2,9 @@ let timer;
 let isBreakTime = window.location.href.includes("frame4.html"); //so the variable can automatically detect break screen to adjust timeLeft appropriately
 let timeLeft; 
 if (isBreakTime) {
-    timeLeft = 10;
+    timeLeft = 300;
 } else {
-    timeLeft = 15;
+    timeLeft = 1500;
 }
 // 15 seconds for both work and break (demo purposes)
 
@@ -47,12 +47,12 @@ function initializeTimer() {
                 if (!isBreakTime) {
                     // switch to break screen
                     isBreakTime = true;
-                    timeLeft = 15; // 15 seconds for break (demo)
+                    timeLeft = 1500; // 15 seconds for break (demo)
                     window.location.href = "frame4.html";
                 } else {
                     // return to homepage/work page
                     isBreakTime = false;
-                    timeLeft = 15; // 15 seconds for work (demo)
+                    timeLeft = 1500; // 15 seconds for work (demo)
                     window.location.href = "index.html";
                 }
             }
@@ -62,7 +62,7 @@ function initializeTimer() {
     function clearTimer() {
         clearInterval(timer);
         timer = null;
-        timeLeft = 15; // so we always reset to 15 seconds (demo)
+        timeLeft = 1500; // so we always reset to 15 seconds (demo)
         updateTimerDisplay();
     }
 
@@ -70,7 +70,7 @@ function initializeTimer() {
     if (clearButton) clearButton.addEventListener("click", clearTimer);
     if (resumeButton) resumeButton.addEventListener("click", () => {
         isBreakTime = false;
-        timeLeft = 15; // 15 seconds when resuming (demo)
+        timeLeft = 1500; // 15 seconds when resuming (demo)
         window.location.href = "index.html";
     });
     //
